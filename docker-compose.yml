@@ -3,6 +3,8 @@ services:
     container_name: mydonut
     environment:
       - TZ=Asia/Seoul
+    ports:
+      - 52222:22
     build:
       context: .
       dockerfile: Dockerfile
