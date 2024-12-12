@@ -1,0 +1,18 @@
+services:
+  mydonut:
+    container_name: mydonut
+    environment:
+      - TZ=Asia/Seoul
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/mydonut
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ipc: host  # 공유 메모리 설정 추가
